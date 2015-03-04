@@ -2828,6 +2828,7 @@
 								callback = btnObject.dropdown;
 							}
 
+
 							this.button.onClick(e, btnName, type, callback);
 							this.dropdown.hideAll();
 
@@ -3901,7 +3902,7 @@
 					this.selection.save();
 
 					var find = '';
-					if (this.inline.type == 'class') find = '[data-redactor-class=' + this.inline.value + ']';
+					if (this.inline.type == 'class') find = '[data-redactor-class="' + this.inline.value + '"]';
 					else if (this.inline.type == 'style')
 					{
 						find = '[data-redactor-style="' + this.inline.value + '"]';
