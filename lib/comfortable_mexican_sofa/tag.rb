@@ -35,13 +35,13 @@ module ComfortableMexicanSofa::Tag
     # 'sidebar.about' namespace is: 'sidebar'
     def initialize_tag(blockable, tag_signature)
       if match = tag_signature.match(regex_tag_signature)
-        
+
         params = begin
           (CSV.parse_line(match[2].to_s, :col_sep => ':') || []).compact
         rescue
           []
         end.map{|p| p.gsub(/\\|'/) { |c| "\\#{c}" } }
-        
+
         tag = self.new
         tag.blockable   = blockable
         tag.identifier  = match[1]

@@ -18,6 +18,8 @@
 #= require comfy/admin/cms/lib/redactor/definedlinks
 #= require comfy/admin/cms/lib/redactor/table
 #= require comfy/admin/cms/lib/redactor/video
+#= require comfy/admin/cms/lib/chosen.jquery.min
+#= require comfy/admin/cms/lib/chosen.proto.min
 #= require_directory ./lib/redactor/i18n/
 #= require comfy/admin/cms/base
 #= require comfy/admin/cms/uploader

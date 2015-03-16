@@ -20,6 +20,7 @@ window.CMS.init = function() {
   CMS.page_update_preview();
   CMS.page_update_publish();
   CMS.categories();
+  CMS.chosen();
   return CMS.files();
 };
 
@@ -213,4 +214,8 @@ window.CMS.set_iframe_layout = function() {
       return $('body').addClass('in-iframe');
     }
   });
+};
+
+window.CMS.chosen = function() {
+  return $('select[data-chosen]').chosen();
 };

@@ -64,6 +64,29 @@ class ComfortableMexicanSofa::FormBuilder < BootstrapForm::FormBuilder
     end
   end
 
+  def field_select(tag, index)
+    fieldname = field_name_for(tag)
+
+    if tag.params.count == 0
+      options = []
+    elsif tag.params.count == 1
+      options = ComfortableMexicanSofa.configuration.select_data_class.try(tag.params.first.pluralize.to_sym) || []
+    else
+      options = tag.params.map(&:titleize)
+    end
+
+    if options.count == 0
+      content = @template.content_tag :p, "No available options. Please, fix the #{tag.identifier} tag in the layout.", class: 'form-control-static'
+    else
+      content = @template.select_tag("#{fieldname}[blocks_attributes][#{index}][content]", @template.options_for_select(options, tag.content), multiple: true, class: 'form-control', data: { chosen: true }, :id => nil)
+      content << @template.hidden_field_tag("#{fieldname}[blocks_attributes][#{index}][identifier]", tag.identifier, :id => nil)
+    end
+
+    form_group :label => {:text => (tag.blockable.class.human_attribute_name(tag.identifier.to_s) || tag.identifier.titleize + "?")} do 
+      content
+    end
+  end
+
   def page_date_time(tag, index)
     default_tag_field(tag, index, :text_field_tag, :data => {'cms-datetime' => true})
   end
