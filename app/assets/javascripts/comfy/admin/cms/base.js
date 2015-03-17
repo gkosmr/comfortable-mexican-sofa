@@ -143,6 +143,7 @@ window.CMS.page_blocks = function() {
         CMS.wysiwyg();
         CMS.timepicker();
         CMS.codemirror();
+        CMS.chosen();
         return CMS.page_file_popovers();
       }
     });
