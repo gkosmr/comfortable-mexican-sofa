@@ -52,7 +52,7 @@ window.CMS.wysiwyg = function() {
     params = csrf_param + "=" + encodeURIComponent(csrf_token);
   }
   return $('textarea.rich-text-editor, textarea[data-cms-rich-text]').redactor({
-    minHeight: 160,
+    minHeight: 350,
     autoresize: true,
     imageUpload: CMS.file_upload_path + "?source=redactor&type=image&" + params,
     imageManagerJson: CMS.file_upload_path + "?source=redactor&type=image",
