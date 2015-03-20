@@ -76,6 +76,10 @@ class Comfy::Cms::Page < ActiveRecord::Base
     end
   end
 
+  def label_with_layout
+    "#{label} [#{layout.label}]"
+  end
+
 protected
 
   def assigns_label

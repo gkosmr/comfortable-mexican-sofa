@@ -25,7 +25,7 @@
       
     .item-content
       .item-title
-        = link_to page.label, edit_comfy_admin_cms_site_page_path(@site, page), :class => 'item-label'
+        = link_to page.label_with_layout, edit_comfy_admin_cms_site_page_path(@site, page), :class => 'item-label'
         = render :partial => 'comfy/admin/cms/categories/categories', :object => page
       .item-meta
         = link_to page.url, page.url, :target => '_blank'
